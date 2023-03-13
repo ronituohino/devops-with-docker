@@ -1,0 +1,4 @@
+roni@cmptr:~/devops-with-docker/part1$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+roni@cmptr:~/devops-with-docker/part1$ docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
