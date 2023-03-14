@@ -1,0 +1,10 @@
+roni@cmptr:~/devops-with-docker/part1$ docker run devopsdockeruh/simple-web-service:ubuntu
+
+roni@cmptr:~$ docker ps -a
+CONTAINER ID   IMAGE                                      COMMAND                 CREATED          STATUS          PORTS     NAMES
+96cb9f0aa29d   devopsdockeruh/simple-web-service:ubuntu   "/usr/src/app/server"   12 seconds ago   Up 11 seconds             busy_swanson
+
+roni@cmptr:~$ docker exec -it 96c tail -f ./text.log
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2023-03-14 14:26:11 +0000 UTC
+2023-03-14 14:26:13 +0000 UTC

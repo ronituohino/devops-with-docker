@@ -1,0 +1,18 @@
+roni@cmptr:~$ docker run -d -it --name looper ubuntu sh -c 'while true; do echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website; done'
+cc68fd9f447924da3f9b671cb4f468746a3435ad3fdf9a768381148030ca49e2
+
+roni@cmptr:~$ docker exec -it looper apt-get update
+
+roni@cmptr:~$ docker exec -it looper apt-get -y install curl
+
+roni@cmptr:~$ docker attach looper
+helsinki.fi
+Searching..
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx/1.20.1</center>
+</body>
+</html>
+
