@@ -1,0 +1,17 @@
+roni@cmptr:~$ docker image ls
+REPOSITORY                          TAG       IMAGE ID       CREATED       SIZE
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   2 years ago   83MB
+devopsdockeruh/simple-web-service   alpine    fd312adc88e0   2 years ago   15.7MB
+
+Alpine is much smaller.
+
+roni@cmptr:~$ docker container ls
+CONTAINER ID   IMAGE                                      COMMAND                 CREATED          STATUS          PORTS     NAMES
+1db09667cb6b   devopsdockeruh/simple-web-service:alpine   "/usr/src/app/server"   16 seconds ago   Up 15 seconds             elegant_nash
+d9b0d5a42182   devopsdockeruh/simple-web-service:ubuntu   "/usr/src/app/server"   29 seconds ago   Up 3 seconds              upbeat_ellis
+roni@cmptr:~$ docker exec -it 1db tail -f ./text.log
+2023-03-14 14:44:35 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2023-03-14 14:44:37 +0000 UTC
+
+The functionality remains the same.
