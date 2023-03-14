@@ -1,0 +1,28 @@
+Frontend dockerfile:
+FROM node:16-alpine
+
+EXPOSE 5000
+WORKDIR /usr/src/app
+
+RUN npm install -g serve
+
+ENV REACT_APP_BACKEND_URL=http://localhost:8080/
+COPY package* ./
+RUN npm install 
+
+COPY . .
+RUN npm run build 
+
+CMD ["serve", "-s", "-l", "5000", "build"]
+
+Backend dockerfile:
+FROM golang:1.16-alpine3.15
+
+ENV REQUEST_ORIGIN=http://localhost:5000
+WORKDIR /usr/src/app
+EXPOSE 8080
+
+COPY . .
+RUN go build
+
+CMD ["./server"]
