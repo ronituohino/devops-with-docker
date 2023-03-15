@@ -1,0 +1,3 @@
+https://hub.docker.com/r/ronituohino/minecraft-server
+
+Instructions on how to run the container are on the container page.
