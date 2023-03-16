@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: frontend
+    build: ~/material-applications/example-frontend
+    container_name: frontend
+    ports:
+      - 127.0.0.1:5000:5000
+  
+  backend:
+    image: backend
+    build: ~/material-applications/example-backend
+    container_name: backend
+    environment:
+      - REDIS_HOST=backend-cache
+    ports:
+      - 127.0.0.1:8080:8080
+
+  backend-cache:
+    image: redis:alpine3.17
+    container_name: backend-cache
