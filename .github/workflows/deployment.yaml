@@ -33,7 +33,6 @@ jobs:
       - uses: actions/checkout@v3
 
       - uses: superfly/flyctl-actions/setup-flyctl@master
-        run: cd ./part3/cloud
-        run: flyctl deploy --remote-only
+      - run: cd ./part3/cloud && flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
