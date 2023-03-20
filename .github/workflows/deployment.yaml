@@ -1,5 +1,5 @@
 # Modified, originally copied from https://devopswithdocker.com/part-3/section-2
-name: Release DevOps with Docker
+name: Upload test project to Docker Hub
 
 on:
   push:

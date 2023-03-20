@@ -1,1 +1,2 @@
-https://github.com/ronituohino/devops-with-docker/tree/main/part3/pipeline
+Project files: https://github.com/ronituohino/devops-with-docker/tree/main/part3/pipeline
+GitHub Actions file: https://github.com/ronituohino/devops-with-docker/blob/main/.github/workflows/deployment.yaml
