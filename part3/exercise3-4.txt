@@ -1,0 +1,23 @@
+Dockerfile:
+FROM docker:23.0.1-cli
+
+COPY builder.sh .
+
+RUN chmod 777 builder.sh
+
+ENTRYPOINT ["./builder.sh"]
+
+
+
+Script:
+#!/bin/sh
+
+git clone "https://github.com/$1" app
+
+docker build -t $2 ./app
+
+rm -rf ./app
+
+docker login -p ${DOCKER_PWD} -u ${DOCKER_USER}
+
+docker image push $2

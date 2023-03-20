@@ -1,0 +1,11 @@
+#!/bin/sh
+
+git clone "https://github.com/$1" app
+
+docker build -t $2 ./app
+
+rm -rf ./app
+
+docker login
+
+docker image push $2
