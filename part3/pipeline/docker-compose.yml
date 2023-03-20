@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  watchtower:
+    image: containrrr/watchtower
+    command: course
+    environment:
+      -  WATCHTOWER_POLL_INTERVAL=5 # Poll every 5 seconds
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: watchtower
+
+  devops-docker-course:
+    image: ronituohino/devops-docker-course
+    ports:
+      - 127.0.0.1:8080:8080
+    container_name: course
