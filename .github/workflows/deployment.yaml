@@ -1,5 +1,5 @@
 # Modified, originally copied from https://devopswithdocker.com/part-3/section-2
-name: Upload test project to Docker Hub
+name: Automatic deployment for projects
 
 on:
   push:
@@ -25,3 +25,16 @@ jobs:
           context: ./part3/pipeline
           push: true
           tags: ronituohino/devops-docker-course:latest
+
+  cloud-deploy:
+    name: Deploy cloud project to Fly.io
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy to Fly.io
+      - run: cd ./part3/cloud
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
