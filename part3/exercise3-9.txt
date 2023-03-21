@@ -1,0 +1,17 @@
+FROM golang:latest AS build-stage
+
+WORKDIR /app
+
+COPY . .
+
+# CGO_ENABLED=0 disables dynamic links to libraries
+# https://stackoverflow.com/questions/55106186/no-such-file-or-directory-with-docker-scratch-image
+RUN CGO_ENABLED=0 go build
+
+
+
+FROM scratch
+
+COPY --from=build-stage /app/server /server
+
+CMD ["/server"]
